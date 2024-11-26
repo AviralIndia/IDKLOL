@@ -1,0 +1,20 @@
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+function makeInvisible(player)
+    local character = player.Character
+    if character then
+        for _, child in pairs(character:GetChildren()) do
+            if child:IsA("BasePart") 1  then
+                child.Transparency = 1
+            end
+        end
+    end
+end
+
+-- Make all players invisible
+for _, player in pairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer then
+        makeInvisible(player)
+    end
+end
